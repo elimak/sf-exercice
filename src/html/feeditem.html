@@ -4,7 +4,7 @@
         <span class="feed-actor">{{feed.actor}}</span>
         <span class="feed-timestamp">{{feed.timestamp}}</span>
         <span class="feed-body">{{feed.body}}</span>
-        <span class="feed-comment-link link" ng-click="goToComment(feed)">{{getTextLink(feed)}}
+        <span class="feed-comment-link link" ng-click="go('/comments/{{feed.id}}')">{{getTextLink(feed)}}
             <!--<a href="{{goToComment(feed)}}">{{getTextLink(feed)}}</a>   -->
         </span>
         <div class="feed-delete"></div>

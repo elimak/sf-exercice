@@ -1,9 +1,14 @@
 <div class="top-bar">
-    <ul>
-        <li><a ng-click="back()">Back</a></li>
-    </ul>
+    <div class="back-btn" ng-click="back()"><span>Back</span></div>
     <div class="photo"><img src="img/avatars.png" alt="user's avatar" /></div>
 </div>
 <div class="feed-comments scroller">
-
+    <section class="feed-item">
+        <div class="feed-photo"><img src="img/avatars.png" alt="avatar of {{feed.actor}}" class="{{feed.photo}}" /></div>
+        <div class="feed-content">
+            <span class="feed-actor">{{feed.actor}}</span>
+            <span class="feed-timestamp">{{feed.timestamp}}</span>
+            <span class="feed-body">{{feed.body}}</span>
+        </div>
+    </section>
 </div>

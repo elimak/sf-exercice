@@ -7,11 +7,14 @@
  */
 (function(){
 
-    var CommentsCtrl = function(){
-
+    var CommentsCtrl = function ($scope, $routeParams, appModel) {
+        $scope.feed = appModel.get($routeParams.id);
     };
 
     CommentsCtrl.$inject = [
+        '$scope',
+        '$routeParams',
+        'appModel',
     ];
 
     module.exports = CommentsCtrl;

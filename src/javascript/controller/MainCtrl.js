@@ -21,8 +21,8 @@
         };
 
         // make appModel available to all scopes
-        $rootScope.appModel = appModel;
-        $scope.feeds = appModel.feeds;
+       // $rootScope.appModel = appModel;
+        $scope.feeds = appModel.query();
 
     };
 

@@ -7,11 +7,31 @@
  */
 (function(){
 
-    var FeedCtrl = function(){
+    var FeedCtrl = function($scope, appModel){
+        $scope.feeds = appModel.query();
 
+        $scope.getTextLink = function( feed ){
+
+            var str;
+            switch(true){
+                case feed.comments.length > 1:
+                    str = feed.comments.length+" Comments";
+                    break;
+                case feed.comments.length == 1:
+                    str = feed.comments.length+" Comment"
+                    break;
+                default:
+                    str = "Comment";
+                    break
+            }
+
+            return str;
+        };
     };
 
     FeedCtrl.$inject = [
+        '$scope',
+        'appModel'
     ];
 
     module.exports = FeedCtrl;

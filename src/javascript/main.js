@@ -38,7 +38,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                     templateUrl: 'feed-list.html',
                     controller: 'FeedCtrl'
                 })
-                .when('/comments',
+                .when('/comments/:id',
                 {
                     templateUrl: 'feed-comments.html',
                     controller: 'CommentsCtrl'
