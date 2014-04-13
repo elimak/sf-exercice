@@ -11,17 +11,47 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 (function(){
 
-  var myApp = angular.module('app', ['ngTouch', 'ngAnimate', 'ngRoute']);
+   /**/
 
-  angular.module('app.directives', ['app.directives']);
+   //angular.module('app.controllers', ['app.controllers']);
 
-  // Controllers
-  myApp.controller('appController', require('./controller/appController'));
+   var myApp = angular.module('app', ['ngTouch', 'ngAnimate', 'ngRoute']);
+   angular.module('app.directives', ['app.directives']);
 
-  // Models
-  myApp.service('appModel', require('./model/appModel'));
+    myApp.controller('MainCtrl', require('./controller/MainCtrl'));
+    myApp.controller('FeedCtrl', require('./controller/FeedCtrl'));
+    myApp.controller('CommentsCtrl', require('./controller/CommentsCtrl'));
+    myApp.controller('ConfirmationCtrl', require('./controller/ConfirmationCtrl'));
 
-  // Directives
-  myApp.directive('foo', require('./directive/foo'));
+    myApp.directive('feeditem', require('./directive/feeditem'));
+
+
+    // Models
+    myApp.service('appModel', require('./model/appModel'));
+
+    // router
+    myApp.config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider
+                .when('/feed',
+                {
+                    templateUrl: 'feed-list.html',
+                    controller: 'FeedCtrl'
+                })
+                .when('/comments',
+                {
+                    templateUrl: 'feed-comments.html',
+                    controller: 'CommentsCtrl'
+                })
+                .when('/confirmation',
+                {
+                    templateUrl: 'delete-confirmation.html',
+                    controller: 'ConfirmationCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/feed'
+                });
+
+        }]);
 
 }).call(this);

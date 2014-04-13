@@ -9,25 +9,16 @@ Neither the name of salesforce.com, inc. nor the names of its contributors may b
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-(function(){
-
-  var appController = function($rootScope, $scope, $element, appModel){
-    console.log('new appController!!');
-
-    // make appModel available to all scopes
-    $rootScope.appModel = appModel;
-
-    $scope.world = "Salesforce UX"
-
-  }
-
-  appController.$inject = [
-    '$rootScope',
-    '$scope',
-    '$element',
-    'appModel'
-  ];
-
-  module.exports = appController;
+(function() {
+  module.exports = function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'feeditem.html',
+      replace: true,
+      transclude: false,
+      link: function($scope, $element, $attrs) {
+      }
+    };
+  };
 
 }).call(this);

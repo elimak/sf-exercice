@@ -1,0 +1,15 @@
+<section class="feed-item">
+    <div class="feed-photo"><img src="img/avatars.png" alt="avatar of {{feed.actor}}" class="{{feed.photo}}" /></div>
+    <div class="feed-content">
+        <span class="feed-actor">{{feed.actor}}</span>
+        <span class="feed-timestamp">{{feed.timestamp}}</span>
+        <span class="feed-body">{{feed.body}}</span>
+        <span class="feed-comment-link link" ng-click="goToComment(feed)">{{getTextLink(feed)}}
+            <!--<a href="{{goToComment(feed)}}">{{getTextLink(feed)}}</a>   -->
+        </span>
+        <div class="feed-delete"></div>
+
+    </div>
+
+    <!--<div class="feed-comment-link"></div> -->
+</section>

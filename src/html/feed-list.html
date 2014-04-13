@@ -1,0 +1,9 @@
+<div class="top-bar">
+    <ul>
+        <li><a ng-click="go('/comments')">comments</a></li>
+    </ul>
+    <div class="photo"><img src="img/avatars.png" alt="user's avatar" /></div>
+</div>
+<div class="feed-list scroller">
+    <feeditem ng-repeat="feed in feeds"></feeditem>
+</div>

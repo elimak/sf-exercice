@@ -11,8 +11,12 @@
   <!-- Custom CSS -->
   <link href="styles.css" rel="stylesheet" type="text/css">
 
-  <!-- Bower libs -->
-  <script src="libs.js"></script>
+    <!-- Bower libs    -->
+    <!-- <script src="libs.js"></script> -->
+    <script src="debug/angular.js"></script>
+    <script src="debug/angular-route.js"></script>
+    <script src="debug/angular-touch.js"></script>
+    <script src="debug/angular-animate.js"></script>
 
   <!-- Browserified application code -->
   <script src="module.js"></script>
@@ -21,10 +25,8 @@
   <script src="ng-templates.js"></script>
 
 </head>
-
-<body ng-controller="appController">
-Hello {{world}}
-<foo></foo>
-<img src="img/R&DUX_Logo.png">
+      <!---->
+<body ng-controller="MainCtrl">
+    <div ng-view ng-class="slide"></div>
 </body>
 </html>

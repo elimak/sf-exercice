@@ -9,8 +9,11 @@ Neither the name of salesforce.com, inc. nor the names of its contributors may b
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
+$headerHeight: 5.4rem;
+
 html {
-  background-color: #1158bf;
+  background-color: #cccccc;
   color: hsla(216, 84%, 95%, 1);
   height: 100%;
   margin: 0;
@@ -18,15 +21,201 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom, #0b3b7f, #1158bf) 0 0;
-  font-family: 'Helvetica Neue';
+  background: linear-gradient(to bottom, #aaaaaa, #eeeeee) 0 0;
   min-height: 100%;
-  padding: 8px;
+  padding: 0px;
   margin: 0;
+  color: #000;
+  font: 120% "Source Sans",helvetica,arial,sans-serif;
+  font-weight: 400;
 }
 
-.foo {
-  font-size: 20px;
-  margin: 15px;
-  color: hsla(216, 84%, 95%, 1);
+.slide{
+  display:block;
 }
+
+.slide-left.ng-enter,
+.slide-left.ng-leave,
+.slide-right.ng-enter,
+.slide-right.ng-leave {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: inherit;
+  -ms-transition: .5s ease-in-out;
+  -webkit-transition: .5s ease-in-out;
+  transition:  .5s ease-in-out;
+}
+
+
+.slide-left.ng-enter {
+  z-index: 101;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.slide-left.ng-enter.ng-enter-active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide-left.ng-leave {
+  z-index: 100;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide-left.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.slide-right.ng-enter {
+  z-index: 100;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.slide-right.ng-enter.ng-enter-active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide-right.ng-leave {
+  z-index: 101;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide-right.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.top-bar{
+  height: $headerHeight;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: #cccccc;
+  color: #333333;
+  box-shadow: inset 0 -1px #aaaaaa,0 1px #ffffff;
+
+  /**
+  Avatar
+  */
+  .photo{
+    float:right;
+    margin:10px;
+    position:relative;
+
+    img{
+      position: absolute;
+      clip: rect(60px 180px 120px 120px);
+      left: -180px;
+      top: -60px;
+    }
+  }
+  // to remove when the navigation is fixed
+  ul{
+    padding: 0;
+    margin: 0;
+    float:left;
+  }
+}
+
+
+.scroller{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: $headerHeight;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+
+.feed-item{
+  padding:15px;
+  margin:5px;
+  /*background-color: #ffffff;
+  border:1px solid #555555;           */
+  min-height: 60px;
+
+  background: #ededed;
+  color: #333333;
+  box-shadow: inset 0 -1px #bcbcbc,0 1px #ffffff;
+
+  span{
+    display:block;
+  }
+}
+
+.feed-item::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.feed-photo{
+  width:60px;
+  height:60px;
+  float:left;
+}
+
+.feed-content{
+  overflow:hidden;
+  padding-left: 15px;
+  position: relative;
+
+  .feed-actor{
+    font-weight:bold;
+  }
+  .feed-timestamp{
+    font-size: 100%;
+    color:#999999;
+    margin-bottom: 15px;
+  }
+  .feed-body{
+    margin-bottom: 15px;
+  }
+}
+
+.feed-delete{
+  background-image: url("img/delete-btn.jpg");
+  width:33px;
+  height:33px;
+  margin:5px;
+  position: absolute; top: 0; right: 0;
+}
+
+.feed-comment-link{
+  text-align: right;
+}
+
+.feed-photo{
+  position: relative;
+}
+
+.avatar  {
+  position: absolute; top: 0; left: 0;
+}
+
+.avatar.pos-0 {
+  clip:rect(0 60px 60px 0);
+}
+.avatar.pos-1 {
+  clip:rect(0 120px 60px 60px); left:-60px;
+}
+.avatar.pos-2 {
+  clip:rect(0 180px 60px 120px); left:-120px;
+}
+.avatar.pos-3 {
+  clip:rect(60px 60px 120px 0); top:-60px;
+}
+.avatar.pos-4 {
+  clip:rect(60px 120px 120px 60px); left:-60px; top:-60px;
+}
+.avatar.pos-5 {
+  clip:rect(60px 180px 120px 120px); left:-120px; top:-60px;
+}
+

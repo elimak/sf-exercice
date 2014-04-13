@@ -15,9 +15,58 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     // put model properties here
     return {
-      bar: 'Bar'      
+        feeds:[
+            {
+                photo:"avatar pos-0",
+                actor:"John Smith",
+                timestamp:"timestamp",
+                body:"Mauris vitae consequat urna. Nam fringilla elementum imperdiet. Donec non tellus sit amet dui posuere cursus. Quisque porta mauris sit amet mauris faucibus molestie. Integer feugiat odio in viverra facilisis. Pellentesque vitae felis nibh. Praesent eu facilisis ipsum. Sed et erat mollis, consequat enim ut.",
+                comments:[
+                    {
+                        photo:"avatar pos-1",
+                        from:"John Smith",
+                        timestamp:"timestamp",
+                        body:"body"
+                    },
+                    {
+                        photo:"photo",
+                        from:"John Smith",
+                        timestamp:"timestamp",
+                        body:"body"
+                    }
+                ]
+            },
+            {
+                photo:"avatar pos-1",
+                actor:"Jone Smith",
+                timestamp:"timestamp",
+                body:"Integer in consequat mauris. Phasellus tincidunt, massa et bibendum adipiscing, augue lorem pulvinar nulla, a tincidunt massa nunc id dolor.",
+                comments:[]
+            },
+            {
+                photo:"avatar pos-2",
+                actor:"John Smith",
+                timestamp:"timestamp",
+                body:"Praesent a porttitor nisi, ut molestie augue. Pellentesque egestas mattis euismod. Fusce at neque ut ligula sollicitudin vestibulum.",
+                comments:[]
+            },
+            {
+                photo:"avatar pos-3",
+                actor:"Jone Smith",
+                timestamp:"timestamp",
+                body:"Praesent suscipit augue fermentum nulla placerat sagittis. Aliquam non dui nisi.",
+                comments:[]
+            },
+            {
+                photo:"avatar pos-4",
+                actor:"Jone Smith",
+                timestamp:"timestamp",
+                body:"In dolor dolor, laoreet vel gravida a, dignissim at tortor. Duis dapibus libero ut nulla egestas pretium.",
+                comments:[]
+            }
+        ]
     };
-  }
+  };
 
   appModel.$inject = [
     '$rootScope'
