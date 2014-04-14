@@ -7,7 +7,7 @@
  */
 (function(){
 
-    var MainCtrl = function($window, $location, $rootScope, $scope, appModel){
+    var MainCtrl = function($window, $location, $rootScope, $scope, appModel, dialogService){
 
         $scope.slide = '';
         $rootScope.back = function() {
@@ -20,9 +20,15 @@
             $location.url(path);
         };
 
+        $rootScope.delete = function (feedId){
+            dialogService.showModalDialog();
+        };
+
         // make appModel available to all scopes
        // $rootScope.appModel = appModel;
         $scope.feeds = appModel.query();
+
+
 
     };
 
@@ -31,7 +37,8 @@
         '$location',
         '$rootScope',
         '$scope',
-        'appModel'
+        'appModel',
+        'dialogService'
     ];
 
     module.exports = MainCtrl;

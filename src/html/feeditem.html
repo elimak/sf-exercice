@@ -7,7 +7,7 @@
         <span class="feed-comment-link link" ng-click="go('/comments/{{feed.id}}')">{{getTextLink(feed)}}
             <!--<a href="{{goToComment(feed)}}">{{getTextLink(feed)}}</a>   -->
         </span>
-        <div class="feed-delete"></div>
+        <div class="feed-delete" ng-click="delete({{feed.id}})"></div>
 
     </div>
 

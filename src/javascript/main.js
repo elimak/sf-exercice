@@ -15,8 +15,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
    //angular.module('app.controllers', ['app.controllers']);
 
-   var myApp = angular.module('app', ['ngTouch', 'ngAnimate', 'ngRoute']);
-   angular.module('app.directives', ['app.directives']);
+   var myApp = angular.module('app', ['ngTouch', 'ngAnimate', 'ngRoute','ui.bootstrap']);
+  // angular.module('app.directives', ['app.directives']);
 
     myApp.controller('MainCtrl', require('./controller/MainCtrl'));
     myApp.controller('FeedCtrl', require('./controller/FeedCtrl'));
@@ -28,6 +28,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     // Models
     myApp.service('appModel', require('./model/appModel'));
+    myApp.service('dialogService', require('./service/dialogService'));
 
     // router
     myApp.config(['$routeProvider',
@@ -45,7 +46,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 })
                 .when('/confirmation',
                 {
-                    templateUrl: 'delete-confirmation.html',
+                    templateUrl: 'dialog.html',
                     controller: 'ConfirmationCtrl'
                 })
                 .otherwise({
